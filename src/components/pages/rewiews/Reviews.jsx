@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import Select from 'react-select';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -13,6 +13,7 @@ import { Navigation } from "swiper";
 
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+
 const options = [
   { value: 'Положительные', label: 'Положительные' },
   { value: 'Негативные', label: 'Негативные' },
@@ -20,27 +21,25 @@ const options = [
   { value: 'Старые', label: 'Старые' },
 ];
 
-
-const ReviewSlide = ({ testimonial }) => {
+const ReviewSlide = ({ testimonial, onOpenPopup }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [textHeight, setTextHeight] = useState('110px');
   const textRef = useRef(null);
-  const [showButton, setShowButton] = useState(false); // Состояние для кнопки
+  const [showButton, setShowButton] = useState(false);
   const swiperSlide = useSwiperSlide();
+
   useEffect(() => {
-    setIsExpanded(false)
+    setIsExpanded(false);
   }, [swiperSlide]);
 
   useEffect(() => {
     if (textRef.current.scrollHeight > 110) {
-      setShowButton(true); // Показываем кнопку, если текст больше 110px
+      setShowButton(true);
     } else {
-      setShowButton(false); // Скрываем кнопку, если текст меньше или равен 110px
+      setShowButton(false);
     }
-  }, [testimonial.text]); // Проверяем длину текста при изменении отзыва
+  }, [testimonial.text]);
 
-  
-  console.log(swiperSlide);
   useEffect(() => {
     if (isExpanded) {
       setTextHeight(`${textRef.current.scrollHeight}px`);
@@ -54,19 +53,17 @@ const ReviewSlide = ({ testimonial }) => {
   };
 
   return (
-    <div className="p-[30px]transition-all">
+    <div className="p-[30px] transition-all">
       <div className="flex items-center mb-[30px]">
         <img className="w-[40px] h-[40px] object-cover mr-[20px]" src={placeholderReviewsIcon} alt="Pla" />
         <div className="font-['Noto_Serif'] text-[20px]">{testimonial.author}</div>
         <div className="relative ml-auto">
           <div className="flex gap-[10px]">
-            {/* Display gray stars */}
             {[...Array(5)].map((_, index) => (
               <img key={index} src={starGray} alt="Star" />
             ))}
           </div>
           <div className="absolute top-0 left-0 flex gap-[10px]">
-            {/* Display gold stars based on rating */}
             {[...Array(testimonial.rating)].map((_, index) => (
               <img key={index} src={starGold} alt="Star" />
             ))}
@@ -84,7 +81,7 @@ const ReviewSlide = ({ testimonial }) => {
 
       <div className="flex justify-between mt-[30px]">
         {showButton && (
-          <button className="flex gap-[20px] items-center text-[#CBCAC5]  hover:text-[#FF9F47] transition-all" onClick={toggleHeight}>
+          <button className="flex gap-[20px] items-center text-[#CBCAC5] hover:text-[#FF9F47] transition-all" onClick={toggleHeight}>
             <span>{isExpanded ? 'Свернуть' : 'Читать больше'}</span>
             <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -100,134 +97,65 @@ const ReviewSlide = ({ testimonial }) => {
           day: '2-digit',
         })}</div>
       </div>
+
+      {/* Button to open Popup */}
+      <button onClick={onOpenPopup} className="mt-4 text-[#FF9F47]">Open More Info</button>
     </div>
   );
 };
 
-
 const Rewiews = () => {
-  const testimonials = [
-    { id: 1, author: 'allrus', rating: 2, text: 'С Яной мы обсуждали многие проблемы и она мне нравилась тем, что Яна абсолютно ко всему, чтобы я не говорил относилась безоценочно. При этом, мне всегда было интересно услышать её точку зрения. Нередко мнение моей собеседницы приводило к тому, что я смотрел на ситуацию с другой стороны, о которой даже и не мог бы подумать сам. Её поддержка, умение слушать, выдержать, её способность хорошо валидировать мои переживания — являлось для меня отличной опорой. Можно сказать, Яна для меня была и психологом, а самое главное — другом. А её эрудированность по теме психологии всегда меня поражали. Я ей искренне и безмерно буду всегда благодарен за уделённое мне время, за помощь, за направление, за поддержку. У этого человека очень много энергии, эмпатии, желания развиваться и помогать людям. Горячо рекомендую!', date: new Date('2024-09-15') },
-    { id: 2, author: 'allrus', rating: 5, text: 'С Яной мы обсуждали многие проблемы и она мне нравилась тем, что Яна абсолютно ко всему, чтобы я не говорил относилась безоценочно. При этом, мне всегда было интересно услышать её точку зрения. Нередко мнение моей собеседницы приводило к тому, что я смотрел на ситуацию с другой стороны, о которой даже и не мог бы подумать сам. Её поддержка, умение слушать, выдержать, её способность хорошо валидировать мои переживания — являлось для меня отличной опорой. Можно сказать, Яна для меня была и психологом, а самое главное — другом. А её эрудированность по теме психологии всегда меня поражали. Я ей искренне и безмерно буду всегда благодарен за уделённое мне время, за помощь, за направление, за поддержку. У этого человека очень много энергии, эмпатии, желания развиваться и помогать людям. Горячо рекомендую!', date: new Date('2024-09-15') },
-    { id: 3, author: 'allrus', rating: 5, text: 'С Яной мы обсуждали многие проблемы и она мне нравилась тем, что Яна абсолютно ко всему, чтобы я не говорил относилась безоценочно. При этом, мне всегда было интересно услышать её точку зрения. Нередко мнение моей собеседницы приводило к тому, что я смотрел на ситуацию с другой стороны, о которой даже и не мог бы подумать сам. Её поддержка, умение слушать, выдержать, её способность хорошо валидировать мои переживания — являлось для меня отличной опорой. Можно сказать, Яна для меня была и психологом, а самое главное — другом. А её эрудированность по теме психологии всегда меня поражали. Я ей искренне и безмерно буду всегда благодарен за уделённое мне время, за помощь, за направление, за поддержку. У этого человека очень много энергии, эмпатии, желания развиваться и помогать людям. Горячо рекомендую!', date: new Date('2024-09-15') },
-    { id: 4, author: 'allrus', rating: 5, text: 'С Яной мы обсуждали многие проблемы и она мне нравилась те', date: new Date('2024-05-15') },
-    { id: 5, author: 'allrus', rating: 2, text: 'С Яной мы обсуждали многие проблемы и она мне нравилась тем, что Яна абсолютно ко всему, чтобы я не говорил относилась безоценочно. При этом, мне всегда было интересно услышать её точку зрения. Нередко мнение моей собеседницы приводило к тому, что я смотрел на ситуацию с другой стороны, о которой даже и не мог бы подумать сам. Её поддержка, умение слушать, выдержать, её способность хорошо валидировать мои переживания — являлось для меня отличной опорой. Можно сказать, Яна для меня была и психологом, а самое главное — другом. А её эрудированность по теме психологии всегда меня поражали. Я ей искренне и безмерно буду всегда благодарен за уделённое мне время, за помощь, за направление, за поддержку. У этого человека очень много энергии, эмпатии, желания развиваться и помогать людям. Горячо рекомендую!', date: new Date('2024-09-15') },
-    { id: 6, author: 'allrus', rating: 5, text: 'С Яной мы обсуждали многие проблемы и она мне нравилась тем, что Яна абсолютно ко всему, чтобы я не говорил относилась безоценочно. При этом, мне всегда было интересно услышать её точку зрения. Нередко мнение моей собеседницы приводило к тому, что я смотрел на ситуацию с другой стороны, о которой даже и не мог бы подумать сам. Её поддержка, умение слушать, выдержать, её способность хорошо валидировать мои переживания — являлось для меня отличной опорой. Можно сказать, Яна для меня была и психологом, а самое главное — другом. А её эрудированность по теме психологии всегда меня поражали. Я ей искренне и безмерно буду всегда благодарен за уделённое мне время, за помощь, за направление, за поддержку. У этого человека очень много энергии, эмпатии, желания развиваться и помогать людям. Горячо рекомендую!', date: new Date('2024-02-15') },
-    { id: 7, author: 'allrus', rating: 5, text: 'С Яной мы обсуждали многие проблемы и она мне нравилась тем, что Яна абсолютно ко всему, чтобы я не говорил относилась безоценочно. При этом, мне всегда было интересно услышать её точку зрения. Нередко мнение моей собеседницы приводило к тому, что я смотрел на ситуацию с другой стороны, о которой даже и не мог бы подумать сам. Её поддержка, умение слушать, выдержать, её способность хорошо валидировать мои переживания — являлось для меня отличной опорой. Можно сказать, Яна для меня была и психологом, а самое главное — другом. А её эрудированность по теме психологии всегда меня поражали. Я ей искренне и безмерно буду всегда благодарен за уделённое мне время, за помощь, за направление, за поддержку. У этого человека очень много энергии, эмпатии, желания развиваться и помогать людям. Горячо рекомендую!', date: new Date('2024-09-15') },
-    { id: 8, author: 'allrus', rating: 2, text: 'С Яной мы обсуждали многие проблемы и она мне нравилась тем, что Яна абсолютно ко всему, чтобы я не говорил относилась безоценочно. При этом, мне всегда было интересно услышать её точку зрения. Нередко мнение моей собеседницы приводило к тому, что я смотрел на ситуацию с другой стороны, о которой даже и не мог бы подумать сам. Её поддержка, умение слушать, выдержать, её способность хорошо валидировать мои переживания — являлось для меня отличной опорой. Можно сказать, Яна для меня была и психологом, а самое главное — другом. А её эрудированность по теме психологии всегда меня поражали. Я ей искренне и безмерно буду всегда благодарен за уделённое мне время, за помощь, за направление, за поддержку. У этого человека очень много энергии, эмпатии, желания развиваться и помогать людям. Горячо рекомендую!', date: new Date('2024-09-15') },
-  ];
-  const [selectedOption, setSelectedOption] = useState(options[0]);
+  const [isPopupOpen, setPopupOpen] = useState(false);
 
-  function submitHandler({ e, close }) {
-    e.preventDefault()
-    close()
-  }
-  const [filteredTestimonials, setFilteredTestimonials] = useState(testimonials);
-  useEffect(() => {
-    const filterTestimonials = () => {
-      let filtered = [...testimonials];
-      const oneMonthInMs = 30 * 24 * 60 * 60 * 1000; // Один месяц в миллисекундах
-      const currentDate = new Date();
-
-      if (selectedOption.value === 'Положительные') {
-        filtered = filtered.filter(testimonial => testimonial.rating >= 4);
-      } else if (selectedOption.value === 'Негативные') {
-        filtered = filtered.filter(testimonial => testimonial.rating <= 2);
-      } else if (selectedOption.value === 'Новые') {
-        // Фильтрация "новых" — если дата отзыва меньше месяца назад
-        filtered = filtered.filter(testimonial => (currentDate - new Date(testimonial.date)) <= oneMonthInMs);
-      } else if (selectedOption.value === 'Старые') {
-        // Фильтрация "старых" — если дата отзыва больше месяца назад
-        filtered = filtered.filter(testimonial => (currentDate - new Date(testimonial.date)) > oneMonthInMs);
-      }
-
-      setFilteredTestimonials(filtered);
-    };
-
-    filterTestimonials();
-  }, [selectedOption]); // Добавил зависимости для правильной работы useEffect
+  const testimonials = useMemo(() => [
+    { id: 1, author: 'allrus', rating: 2, text: 'С Яной мы обсуждали многие проблемы...', date: new Date('2024-09-15') },
+    { id: 2, author: 'allrus', rating: 5, text: 'С Яной мы обсуждали многие проблемы...', date: new Date('2024-09-15') },
+    { id: 3, author: 'allrus', rating: 5, text: 'С Яной мы обсуждали многие проблемы...', date: new Date('2024-09-15') },
+    { id: 4, author: 'allrus', rating: 5, text: 'С Яной мы обсуждали многие проблемы...', date: new Date('2024-09-15') },
+    { id: 5, author: 'allrus', rating: 5, text: 'С Яной мы обсуждали многие проблемы...', date: new Date('2024-09-15') },
+  ], []);
 
   return (
-    <div className="font-['Manrope']">
-      <br /><br /><br /><br /><br /><br /><br /><br />
-      <div className="max-lg:px-[15px] container !mb-[65px] grid grid-cols-[150px_1fr_150px] max-md:grid-cols-[1fr_150px] max-md:gap-[5px]">
-        <div className="w-[150px] max-md:hidden"></div>
-        <h2 className="max-md:text-[25px] font-['Noto_Serif'] mx-auto font-medium flex items-center text-[30px] w-[100%] max-w-[460px] before:content-[''] before:w-[100%] before:block before:h-[1px] before:bg-[currentColor] before:mr-[30px] max-md:before:mr-[15px] after:content-[''] after:w-[100%] after:block after:h-[1px] after:bg-[currentColor] after:ml-[30px] max-md:after:ml-[15px]">
-          Отзывы
-        </h2>
-        <Select
-          isSearchable={false}
-          classNamePrefix="react-select"
-          defaultValue={selectedOption}
-          onChange={setSelectedOption}
-          options={options}
-          className="z-[100]"
-        />
-      </div>
-      <Swiper className="" spaceBetween={50} modules={[Navigation]}  
+    <div className="py-[50px]">
+      <Select options={options} defaultValue={options[0]} className="mb-[30px]" />
+      <Swiper
+        modules={[Navigation]}
+        navigation={{
+          nextEl: '.next',
+          prevEl: '.prev',
+        }}
         breakpoints={{
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
           1024: {
-            spaceBetween: 250,
+            slidesPerView: 3,
+            spaceBetween: 30,
           },
         }}
-      navigation={{
-        prevEl: ".button-prev",
-        nextEl: ".button-next",
-        disabledClass: "button-disabled"
-      }}
-
-        onSlideChange={() => { }}
-        initialSlide={1}
-        centeredSlides={true} slidesPerView={"auto"} >
-        <button className="max-md:w-[30px] max-md:h-[30px] max-md:left-[5px] max-2xl:left-[200px] z-[100] absolute top-[50%] translate-y-[-50%] left-[490px] w-[40px] h-[40px] flex justify-center items-center button-prev" type="button"><img src={arrowLeft} alt="" /></button>
-        <button className="max-md:w-[30px] max-md:h-[30px] max-md:right-[5px] max-2xl:right-[200px] z-[100] absolute top-[50%] translate-y-[-50%] right-[490px] w-[40px] h-[40px] flex justify-center items-center button-next" type="button"><img src={arrowRight} alt="" /></button>
-
-        {filteredTestimonials.map((testimonial) => (
-          <SwiperSlide key={testimonial.id} className="w-[640px] max-md:w-[calc(100vw-75px)] bg-white">
-            <ReviewSlide testimonial={testimonial} />
+      >
+        {testimonials.map((testimonial) => (
+          <SwiperSlide key={testimonial.id}>
+            <ReviewSlide testimonial={testimonial} onOpenPopup={() => setPopupOpen(true)} />
           </SwiperSlide>
         ))}
-
+        <div className="prev flex justify-center items-center absolute top-[50%] left-[10px] -translate-y-[50%] bg-[#FFFFFF] rounded-full p-[5px] cursor-pointer">
+          <img src={arrowLeft} alt="Left" />
+        </div>
+        <div className="next flex justify-center items-center absolute top-[50%] right-[10px] -translate-y-[50%] bg-[#FFFFFF] rounded-full p-[5px] cursor-pointer">
+          <img src={arrowRight} alt="Right" />
+        </div>
       </Swiper>
-      <Popup
-        trigger={<button className="max-md:ml-[30px] max-md:mt-[30px] max-md:mb-[100px] bg-white relative z-[110] mb-[220px] mt-[-35px] ml-[435px]  text-center font-semibold border border-solid border-[#FF9F47] w-[160px] h-[160px] rounded-[50%] font-[Manrope]  leading-[135%] flex justify-center items-center  hover:text-white justify-self-center self-center hover:bg-[#F47500] hover:border-[#F47500] transition-all circle" >
-          Добавить <br /> отзыв
-        </button>}
-        modal
-        nested
-        lockScroll
-      >
-        {close => (
-          <div className="modal">
-            <button className="close mb-[25px]" onClick={close}>
-              &times;
-            </button>
-            <div className="header text-[30px] font-medium mb-[30px]  leading-[135%]"> Хотите оставить отзыв ? </div>
-            <div className="content">
-              <form className="grid gap-[25px]" onSubmit={(e) => submitHandler({ e, close })}>
-                <label className="flex flex-col gap-[15px]">
-                  <span>Текст вашего отзыва</span>
-                  <textarea required rows={5} className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]" />
-                </label>
-                <div className="flex flex-col gap-[25px]">
-                  <label className="flex flex-col gap-[15px]" >
-                    <span>Ваша оценка</span>
-                    <select required className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]" name="" id="">
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                    </select>
-                  </label>
-                  <button className="bg-[#F47500] text-white font-medium min-h-[40px]">Оставить отзыв</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        )}
-      </Popup>
 
+      {/* Popup for additional information */}
+      <Popup open={isPopupOpen} onClose={() => setPopupOpen(false)}>
+        <div className="p-4">
+          <h2>Additional Information</h2>
+          <p>Here you can provide more details about the review or any other content.</p>
+          <button onClick={() => setPopupOpen(false)}>Close</button>
+        </div>
+      </Popup>
     </div>
   );
 };
