@@ -344,18 +344,13 @@ table {
   z-index: 99999999 !important;
 }
 
-@media (max-width: 768px)
-.max-lg\:block {
-    display: block;
-    float: right;
-    margin-left: 100px  !important;
-}
+
 
 @media (max-width:768px){
 .max-lg\:block {
     display: block;
     float: right;
-    margin-left: 0px !important;
+    margin-left: auto !important;
    }
 .css-w5bf8c {
     background-color: rgb(255 255 255 / 0%);
