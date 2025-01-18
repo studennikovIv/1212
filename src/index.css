@@ -40,7 +40,7 @@ code {
 }
 
 .css-1cej2ln::before {
-
+position: absolute  !important;
     background-color: rgb(255 255 255 / 0%) !important;
     backdrop-filter: blur(0px) !important;
 }
@@ -50,6 +50,7 @@ code {
     position: absolute;
     inset: 0px;
     z-index: -1;
+  position: absolute  !important;
     background-color: rgb(255 255 255 / 0%) !important;
     backdrop-filter: blur(0px) !important;
 }
