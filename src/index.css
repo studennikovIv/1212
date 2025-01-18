@@ -350,7 +350,7 @@ table {
 .max-lg\:block {
     display: block;
     float: right;
-    margin-left: auto !important;
+    margin-left: 100% !important;
    }
 .css-w5bf8c {
     background-color: rgb(255 255 255 / 0%);
