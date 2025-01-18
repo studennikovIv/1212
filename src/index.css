@@ -425,7 +425,7 @@ table {
 .max-lg\:block {
     display: block;
     float: right;
-    margin-left: 340px !important
+    margin-left: 340px !important;
 }
 @media (max-width: 768px)
 
@@ -442,4 +442,9 @@ table {
 .max-lg\:block {
     display: block;
     margin-left: 186px;
+}
+@media (max-width: 768px)
+.css-126triz {
+    width: 100% !important;
+    padding-right: 0px !important;
 }
