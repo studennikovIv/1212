@@ -457,7 +457,7 @@ table {
   .max-lg\:block {
     display: block;
     float: right;
-    margin-left: 0px !important;
+    margin-left: 100% !important;
    }
   .css-1y9aock li+li {
     margin-top: 0px!important;
