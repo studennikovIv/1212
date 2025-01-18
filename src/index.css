@@ -32,7 +32,33 @@ body {
     margin-left: auto !important;
     margin-right: auto !important;
 }
+.css-13lkean p {
+    width: 424px;
+    font-family: "Noto Serif";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+    font-family: Manrope!important;
+    font-size: 16px!important;
+    font-weight: 400!important;
+    letter-spacing: 0!important;
+    /* line-height: 22px!important; */
+    /* margin-top: 65px; */
+    /* padding: 100px 0; */
+    text-align: left!important;
+}
 
+.css-17kvxwx {
+    padding-left: 50px;
+    position: relative;
+    font-family: Manrope!important;
+    font-size: 16px!important;
+    font-weight: 400!important;
+    letter-spacing: 0!important;
+    width: 430px !important;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
