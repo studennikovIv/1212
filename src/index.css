@@ -33,6 +33,23 @@ code {
 .css-1y9aock li + li {
     margin-top: 61px !important;
 }
+
+.css-19bib9m p {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding: 100px 0px;
+    margin-top: 70px;
+    font-weight: 400;
+    font-size: 15px;
+    margin-top: 65px;
+    font-family: Manrope  !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;;
+    line-height: 22px !important;;
+    letter-spacing: 0em !important;;
+    text-align: left !important;;
+}
+
 a {
   text-decoration: none;
 }
