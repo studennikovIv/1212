@@ -116,7 +116,7 @@ position: absolute  !important;
     content: "";
     position: absolute;
     inset: 0px;
-    z-index: -1;
+    z-index: 0;
   position: absolute  !important;
     background-color: rgb(255 255 255 / 0%) !important;
     backdrop-filter: blur(0px) !important;
@@ -128,7 +128,7 @@ position: absolute  !important;
 
 .css-1cej2ln {
  
-    z-index: -1 !important;
+    z-index: 0 !important;
 }
 .css-10adisa {
     width: 47px !important;
@@ -444,7 +444,7 @@ table {
     top: 0px;
     left: 0px;
     width: 100%;
-    z-index: 9999 !important;
+    
 }
   .css-17kvxwx button {
   
