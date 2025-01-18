@@ -420,7 +420,7 @@ table {
  
 }
   .css-kz17fh {
-  height: auto;
+  height: auto !important;
 }
 .css-1cej2ln {
     z-index: 20!important;
