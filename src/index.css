@@ -403,3 +403,16 @@ table {
     margin-left: 300px;
   }
 }
+
+@media not all and (min-width: 1024px)
+.\[\&\.open\]\:max-lg\:left-\[0\%\].open {
+    left: 0;
+    background: #0000;
+}
+
+@media not all and (min-width: 1024px)
+.max-lg\:block {
+    display: block;
+    float: right;
+    margin-left: 340px !important
+}
