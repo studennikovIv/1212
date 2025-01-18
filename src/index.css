@@ -431,7 +431,7 @@ table {
     padding: 0px 15px;
     margin: 0px auto;
     width: 100% !important;
-    height: auto;
+    height: auto !important;
 }
 
   .css-1cej2ln {
