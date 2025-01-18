@@ -32,6 +32,32 @@ body {
     margin-left: auto !important;
     margin-right: auto !important;
 }
+.css-16yox0q ul li {
+ 
+    font-size: 18px;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    text-align: left;
+    font-family: Manrope!important;
+    font-size: 16px!important;
+    font-weight: 400!important;
+    letter-spacing: 0!important;
+}
+.css-16yox0q p {
+    margin-top: 20px;
+    /* font-family: "Noto Serif"; */
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: left;
+  line-height: 28px!important;
+    font-family: Manrope!important;
+    font-size: 16px!important;
+    font-weight: 400!important;
+    letter-spacing: 0!important;
+}
+
 .css-13lkean p {
     width: 424px;
     font-family: "Noto Serif";
