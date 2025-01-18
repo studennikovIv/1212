@@ -409,6 +409,52 @@ table {
     float: right;
     margin-left: 100% !important;
    }
+.css-oyi3ym h3 {
+    font-family: "Noto Serif";
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 41px !important;
+    letter-spacing: 0em;
+    text-align: center;
+    position: relative;
+}
+
+  .css-13lkean img {
+    width: 460px;
+   height: auto !important;
+    margin-left: 50px;
+}
+  .css-17kvxwx button {
+bottom: 400px;
+    right: -26px !important;
+}
+  .css-17kvxwx ul {
+    margin-top: 19px!important;
+}
+.css-16yox0q {
+    display: flex;
+    margin-top: -18px  !important;
+}
+  .css-ms8ywf h4 {
+    font-family: "Noto Serif";
+    font-size: 20px !important;
+    font-weight: 500;
+    /* line-height: 41px; */
+    letter-spacing: 0em;
+    /* text-align: left; */
+    position: relative;
+    margin-left: 60px !important;
+    margin-right: -65px !important;
+}
+  .css-17kvxwx {
+    padding-left: 0px !important;
+    line-height: 1 !important;
+    width: 100% !important;
+}
+  .css-13lkean p {
+    line-height: 26px !important;
+    width: 100%;
+}
 .css-w5bf8c {
     background-color: rgb(255 255 255 / 0%);
     backdrop-filter: blur(0px);
