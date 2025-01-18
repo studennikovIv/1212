@@ -459,7 +459,7 @@ table {
     right: 5px;
     /* top: 80%; */
     width: 347px;
-    
+     left: 13px !important;
     display: block;
     z-index: 99999999;
 }
