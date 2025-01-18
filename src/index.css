@@ -31,12 +31,44 @@ code {
     monospace;
 }
 .css-1y9aock li + li {
-    margin-top: 61px !important;
+    margin-top: 71px !important;
 }
 .css-f1d9g4 {
- 
-    padding-right: 110px !important;;
+ margin-top: 20px !important;
+    padding-right: 110px !important;
 
+}
+
+.css-1cej2ln::before {
+
+    background-color: rgb(255 255 255 / 0%) !important;
+    backdrop-filter: blur(0px) !important;
+}
+
+.css-10adisa {
+    width: 47px !important;
+}
+}
+.css-1v0wp19 a {
+    color: #afafaf !important;
+}
+.css-t3jzle {
+    padding: 11px 0px 0px 196px !important;
+    width: 928px !important;
+  }
+.css-126triz {
+    width: 490px !important;
+}
+.css-19bib9m {
+    width: 29% !important;
+  }
+.css-126triz h3 {
+      font-size: 42px !important;
+    line-height: 49px !important;
+}
+
+.css-1y9aock {
+    margin-top: 136px !important;
 }
 .css-19bib9m p {
     border-top: 2px solid black;
@@ -48,10 +80,10 @@ code {
     margin-top: 65px;
     font-family: Manrope  !important;
     font-size: 16px !important;
-    font-weight: 400 !important;;
-    line-height: 22px !important;;
-    letter-spacing: 0em !important;;
-    text-align: left !important;;
+    font-weight: 400 !important;
+    line-height: 22px !important;
+    letter-spacing: 0em !important;
+    text-align: left !important;
 }
 
 a {
