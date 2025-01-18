@@ -80,6 +80,7 @@ body {
   background-color: rgb(255 255 255) !important;
     border: 1px solid rgb(244, 117, 0)!important;
     color: rgb(0 0 0)!important;
+  font-size: 20px !important;
       width: 200px !important;
     height: 200px !important;
 }
@@ -420,7 +421,26 @@ table {
     text-align: center;
     position: relative;
 }
-
+.css-13lkean {
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-top: 10px !important;
+}
+  .css-1fv55ts {
+    width: 100%;
+    margin-top: 99px !important;
+    font-size: 20px;
+}
+  .css-oyi3ym h3 {
+    font-family: "Noto Serif";
+    font-size: 26px !important;
+    font-weight: 500;
+    line-height: 41px;
+    letter-spacing: 0em;
+    text-align: center;
+    position: relative;
+}
   .css-13lkean img {
     width: 460px;
    height: auto !important;
