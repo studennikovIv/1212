@@ -337,7 +337,7 @@ table {
 .popup-overlay {
   z-index: 99999999 !important;
 }
-@media (max-width:1024px){
+@media (max-width:768px){
 .max-lg\:block {
     display: block;
     float: right;
