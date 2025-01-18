@@ -421,6 +421,11 @@ table {
     text-align: center;
     position: relative;
 }
+  .css-17kvxwx button {
+  
+    height: 150px!important;
+    width: 150px!important;
+}
 .css-13lkean {
     flex-direction: column;
     -webkit-box-align: center;
