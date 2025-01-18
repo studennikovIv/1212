@@ -107,7 +107,10 @@ position: absolute  !important;
       font-size: 42px !important;
     line-height: 49px !important;
 }
-
+.css-w5bf8c {
+    background-color: rgb(255 255 255 / 0%);
+    backdrop-filter: blur(0px);
+}
 .css-1y9aock {
     margin-top: 136px !important;
 }
@@ -354,6 +357,19 @@ table {
     float: right;
     margin-left: 0px !important;
    }
+.css-w5bf8c {
+    background-color: rgb(255 255 255 / 0%);
+    backdrop-filter: blur(0px);
+}
+  .css-3zmcvc {
+
+    margin-top: -282px !important;
+}
+  
+  .css-48t1sb {
+
+    margin-top: 112px  !important;
+}
 
   .css-a37un0 ul li {
     width: 100% !important;
