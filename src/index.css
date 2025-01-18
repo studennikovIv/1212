@@ -359,12 +359,12 @@ table {
 }
   .css-126triz p {
     line-height: 28px;
-     margin-top: 25px;
+     margin-top: 25px !important;
 }
 
   .css-kfpqr8 {
     width: 100% !important;
-    bottom: 200px;
+    bottom: 200px !important;
 }
 @media (max-width:1707px) {
   .button-prev {
