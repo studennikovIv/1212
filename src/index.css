@@ -265,6 +265,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+.css-a37un0 ul li {
+    width: 100% !important;
+    }
 
 .container {
   max-width: 1520px;
