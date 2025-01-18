@@ -412,9 +412,19 @@ table {
     float: right;
     margin-left: 100% !important;
    }
+.css-1cej2ln {
+    z-index: 20!important;
+}
+  .css-t3jzle {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0px 15px;
+    margin: 0px auto;
+    width: 100% !important;
+}
 
   .css-1cej2ln {
-    z-index: 0!important;
+    z-index: 0 !important;
 }
 .css-oyi3ym h3 {
     font-family: "Noto Serif";
@@ -438,7 +448,9 @@ table {
     display: block;
     z-index: 99999999;
 }
-  
+  .css-1cej2ln {
+    z-index: 20!important;
+}
   .css-1cej2ln {
     position: fixed !important;
     top: 0px;
