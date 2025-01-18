@@ -337,6 +337,12 @@ table {
 .popup-overlay {
   z-index: 99999999 !important;
 }
+@media (max-width:1024px){
+.max-lg\:block {
+    display: block;
+    float: right;
+    margin-left: 340px !important
+   }
 
 @media (max-width:1707px) {
   .button-prev {
@@ -426,4 +432,9 @@ table {
     max-width: 100%;
     padding: 0px 30px;
     margin-top: 120px;
+}
+@media not all and (min-width: 1024px)
+.max-lg\:block {
+    display: block;
+    margin-left: 186px;
 }
