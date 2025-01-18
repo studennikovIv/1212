@@ -348,10 +348,24 @@ table {
     margin-left: 200px;
 }
   .css-126triz {
-    width: 110% !important;
+    width: 100% !important;
     padding-right: 0px !important;
   }
+  .css-126triz h3 {
+    font-size: 30px !important;
+    text-align: center !important;
+    line-height: 39px !important;
+    margin-top: -22px !important;
+}
+  .css-126triz p {
+    line-height: 28px;
+     margin-top: 25px;
+}
 
+  .css-kfpqr8 {
+    width: 100% !important;
+    bottom: 200px;
+}
 @media (max-width:1707px) {
   .button-prev {
     left: 350px !important;
