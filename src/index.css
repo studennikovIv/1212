@@ -347,6 +347,9 @@ table {
     width: 50px;
     margin-left: 200px;
 }
+  .css-126triz {
+    width: 110% !important;
+    padding-right: 0px !important;
   }
 
 @media (max-width:1707px) {
