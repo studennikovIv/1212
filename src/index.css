@@ -412,6 +412,10 @@ table {
     float: right;
     margin-left: 100% !important;
    }
+
+  .css-1cej2ln {
+    z-index: 0!important;
+}
 .css-oyi3ym h3 {
     font-family: "Noto Serif";
     font-size: 26px;
