@@ -416,3 +416,14 @@ table {
     float: right;
     margin-left: 340px !important
 }
+@media (max-width: 768px)
+
+.css-126triz p {
+    margin-top: 27px;
+  }
+@media (max-width: 768px)
+.css-3rqnws {
+    max-width: 100%;
+    padding: 0px 30px;
+    margin-top: 120px;
+}
