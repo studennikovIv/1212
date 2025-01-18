@@ -55,6 +55,11 @@ position: absolute  !important;
     backdrop-filter: blur(0px) !important;
 }
 
+.css-kz17fh p {
+    text-align: right !important;
+}
+
+
 .css-10adisa {
     width: 47px !important;
 }
