@@ -44,6 +44,14 @@ code {
     background-color: rgb(255 255 255 / 0%) !important;
     backdrop-filter: blur(0px) !important;
 }
+.css-1cej2ln {
+    content: "";
+    position: absolute;
+    inset: 0px;
+    z-index: -1;
+    background-color: rgb(255 255 255 / 0%) !important;
+    backdrop-filter: blur(0px) !important;
+}
 
 .css-10adisa {
     width: 47px !important;
