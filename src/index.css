@@ -348,7 +348,7 @@ table {
 }
 
   .css-a37un0 ul li {
-    width: 100% !important;
+    width: 100%!important;
 }
 
   .css-a37un0 ul li + li {
@@ -358,6 +358,13 @@ table {
 
   .css-19bib9m {
     width: 100%!important;
+}
+
+  .css-19bib9m ul {
+    bottom: -26px!important;
+    margin-right: auto!important;
+    margin-left: auto!important;
+    width: 65%!important;
 }
 
   .css-a37un0 h3 {
