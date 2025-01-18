@@ -421,6 +421,27 @@ table {
     text-align: center;
     position: relative;
 }
+
+  .\[\&\.open\]\:max-lg\:left-\[0\%\].open {
+    left: 65px;
+    z-index: 99999;
+    background: #fff !important;
+    position: fixed;
+    right: 5px;
+    /* top: 80%; */
+    width: 347px;
+    height: 160px;
+    display: block;
+    z-index: 99999999;
+}
+  
+  .css-1cej2ln {
+    position: fixed !important;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 9999 !important;
+}
   .css-17kvxwx button {
   
     height: 150px!important;
