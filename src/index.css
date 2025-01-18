@@ -343,12 +343,23 @@ table {
     float: right;
     margin-left: 340px !important;
    }
+  .css-1y9aock li+li {
+    margin-top: 0px!important;
+}
   .w-\[50px\] {
     width: 50px;
     margin-left: 200px;
 }
   .css-kfpqr8 button {
     left: -17px !important;
+}
+
+  .css-1y9aock {
+ 
+    width: 49% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+
 }
   .css-126triz {
     width: 100% !important;
@@ -367,7 +378,7 @@ table {
 
   .css-kfpqr8 {
     width: 100% !important;
-    bottom: 200px !important;
+    bottom: 136px !important;
 }
 @media (max-width:1707px) {
   .button-prev {
