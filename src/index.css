@@ -103,6 +103,9 @@ code {
 .css-f1d9g4 {
  margin-top: 20px !important;
     padding-right: 110px !important;
+    top: 0;
+  width: 100%;
+  transition: top 0.3s;
 
 }
 
