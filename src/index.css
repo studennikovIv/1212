@@ -432,7 +432,12 @@ table {
     box-sizing: border-box;
     z-index: 9999999999 !important;
 }
+.p-\[30px\] {
+    padding: 19px !important;
+}
+  
 .p-\[5px\] {
+  margin-top: 30px !important;
     padding: 5px;
     z-index: 99999999 !important;
 }
