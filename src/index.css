@@ -427,7 +427,10 @@ table {
     float: right;
    
    }
-
+.css-ms8ywf h4::before {
+    right: 0 !important;
+  
+}
  .w-\[50px\] {
     width: 50px;
     margin-left: 222px !important;
