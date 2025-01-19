@@ -436,7 +436,7 @@ table {
   .css-b62m3t-container {
     position: relative;
     box-sizing: border-box;
-    z-index: 9999999999 !important;
+    z-index: 9 !important;
 }
 .p-\[30px\] {
     padding: 19px !important;
