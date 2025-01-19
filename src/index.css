@@ -429,11 +429,13 @@ table {
    }
 
   .css-ms8ywf h4::after {
-    left: -40 !important;
+    left: 0px !important;
     top: 50%;
+    width: 0px;
 }
 .css-ms8ywf h4::before {
     right: 0 !important;
+   width: 0px  !important;
   
 }
  .w-\[50px\] {
