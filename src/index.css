@@ -427,6 +427,15 @@ table {
     float: right;
    
    }
+  .css-b62m3t-container {
+    position: relative;
+    box-sizing: border-box;
+    z-index: 9999999999 !important;
+}
+.p-\[5px\] {
+    padding: 5px;
+    z-index: 99999999 !important;
+}
 .css-f1d9g4 {
   background-image: url(https://studennikoviv.github.io/1212/static/media/bg.b0c23b4925d8f79e88d6.png);
   background-color: #fff;
