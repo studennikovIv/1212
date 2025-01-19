@@ -119,7 +119,8 @@ code {
 
 .css-1cej2ln {
     content: "";
-    
+    height: 20px !important;
+    position: fixed !important;
     inset: 0px;
     z-index: 0;
   
