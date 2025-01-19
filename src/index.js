@@ -11,3 +11,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </React.StrictMode>
 );
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("css-f1d9g4").style.top = "0";
+  } else {
+    document.getElementById("css-f1d9g4").style.top = "-50px";
+  }
+  prevScrollpos = currentScrollPos;
+}
