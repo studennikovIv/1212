@@ -44,6 +44,11 @@ body {
     font-weight: 400!important;
     letter-spacing: 0!important;
 }
+
+.p-\[5px\] {
+    padding: 5px;
+    z-index: 99999999;
+}
 .css-16yox0q p {
     margin-top: 20px;
     /* font-family: "Noto Serif"; */
