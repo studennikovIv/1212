@@ -11,6 +11,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </React.StrictMode>
 );
+
+<script>
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
   var currentScrollPos = window.pageYOffset;
@@ -21,3 +23,4 @@ window.onscroll = function() {
   }
   prevScrollpos = currentScrollPos;
 }
+<script>
