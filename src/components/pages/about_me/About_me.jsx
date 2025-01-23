@@ -49,7 +49,7 @@ const AboutMe = () => {
               <li>“Логотерапия: представление о человеке”</li>
             </ul>
             <button>
-              Посмотреть <br /> фото
+              Записатся на <br /> консультантацию
             </button>
           </RIGHT_TEXT_DIV>
         </TOP_ABOUT_ME_DIV>
