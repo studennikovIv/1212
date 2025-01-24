@@ -93,6 +93,38 @@ const AboutMe = () => {
         </BOT_ABOUT_ME_DIV>
       </ABOUT_ME_DIV>
     </TITLE_SECTION>
+     <Popup
+            trigger={ <button className="w-[160px] h-[160px] rounded-[50%] font-[Manrope] font-semibold leading-[135%] flex justify-center items-center bg-[#FF9F47] text-white justify-self-center self-center hover:bg-[#F47500] transition-all" >
+              Записаться на консультацию
+            </button>}
+            modal
+            nested
+            lockScroll
+          >
+            {close => (
+              <div className="modal">
+                <button className="close mb-[25px]" onClick={close}>
+                  &times;
+                </button>
+                <div className="header text-[30px] font-medium mb-[30px]  leading-[135%]">Хотите записать на прием ? </div>
+                <div className="content">
+                  <form className="grid gap-[25px]" onSubmit={(e) => submitHandler({ e, close })}>
+                    <label className="flex flex-col gap-[15px]">
+                      <span>Ваше имя</span>
+                      <input required className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]" />
+                    </label>
+                    <div className="flex flex-col gap-[25px]">
+                    <label className="flex flex-col gap-[15px]">
+                      <span>Номер телефона</span>
+                      <input type="number" required className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]" />
+                    </label>
+                      <button className="bg-[#F47500] text-white font-medium min-h-[40px]">Оставить отзыв</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            )}
+          </Popup>
   );
 };
 
