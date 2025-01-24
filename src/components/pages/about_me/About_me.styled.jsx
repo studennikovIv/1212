@@ -6,6 +6,7 @@ export const TITLE_SECTION = styled.section`
   margin: 140px auto 0;
   @media (max-width: 768px) {
     width:100%;
+    overflow-x: hidden;
   }
 `;
 export const ABOUT_ME_DIV = styled.div`
