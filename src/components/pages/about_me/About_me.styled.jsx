@@ -19,7 +19,10 @@ export const ABOUT_ME_DIV = styled.div`
     position: relative;
     
   }
-  
+
+  #root {
+  overflow-x: hidden!important;
+  }
   h3::after,
   h3::before {
     content: '';
