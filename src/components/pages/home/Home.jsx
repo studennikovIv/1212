@@ -1,3 +1,7 @@
+import React from 'react';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+
 import {
   TITLE_SECTION,
   HERO_DIV,
@@ -32,6 +36,12 @@ import potential from './img/Potential.png';
 import selbstachtung from './img/Selbstachtung.png';
 
 const Home = () => {
+  const submitHandler = ({ e, close }) => {
+    e.preventDefault();
+    // Обработка отправки формы
+    close(); // Закрыть модальное окно после отправки
+  };
+
   return (
     <TITLE_SECTION>
       <HERO_DIV>
@@ -65,9 +75,54 @@ const Home = () => {
           </LINK_LIST_UL>
         </LEFT_HERO_DIV>
         <CENTER_HERO_DIV>
-          <button>
-            Записаться на <br /> консультацию
-          </button>
+          <Popup
+            trigger={
+              <button className="w-[160px] h-[160px] rounded-[50%] font-[Manrope] font-semibold leading-[135%] flex justify-center items-center bg-[#FF9F47] text-white justify-self-center self-center hover:bg-[#F47500] transition-all">
+                Записаться на консультацию
+              </button>
+            }
+            modal
+            nested
+            lockScroll
+          >
+            {close => (
+              <div className="modal">
+                <button className="close mb-[25px]" onClick={close}>
+                  &times;
+                </button>
+                <div className="header text-[30px] font-medium mb-[30px] leading-[135%]">
+                  Хотите записаться на прием?
+                </div>
+                <div className="content">
+                  <form
+                    className="grid gap-[25px]"
+                    onSubmit={e => submitHandler({ e, close })}
+                  >
+                    <label className="flex flex-col gap-[15px]">
+                      <span>Ваше имя</span>
+                      <input
+                        required
+                        className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]"
+                      />
+                    </label>
+                    <div className="flex flex-col gap-[25px]">
+                      <label className="flex flex-col gap-[15px]">
+                        <span>Номер телефона</span>
+                        <input
+                          type="number"
+                          required
+                          className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]"
+                        />
+                      </label>
+                      <button className="bg-[#F47500] text-white font-medium min-h-[40px]">
+                        Оставить отзыв
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            )}
+          </Popup>
         </CENTER_HERO_DIV>
         <RIGHT_HERO_DIV>
           <BTN_TOP>
@@ -155,4 +210,5 @@ const Home = () => {
     </TITLE_SECTION>
   );
 };
+
 export default Home;
