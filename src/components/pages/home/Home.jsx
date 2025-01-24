@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
@@ -41,6 +41,18 @@ const Home = () => {
     // Обработка отправки формы
     close(); // Закрыть модальное окно после отправки
   };
+
+const [valueNumber, setValueNumber] = useState('');
+const [valueName, setValueName] = useState('');
+
+
+
+const nameChange = (e) => {
+  setValueName(e.target.value); 
+};
+const numberChange = (e) => {
+  setValueNumber(e.target.value)
+}
 
   return (
     <TITLE_SECTION>
@@ -102,6 +114,7 @@ const Home = () => {
                       <span>Ваше имя</span>
                       <input
                         required
+                        onChange={nameChange}
                         className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]"
                       />
                     </label>
@@ -110,6 +123,7 @@ const Home = () => {
                         <span>Номер телефона</span>
                         <input
                           type="number"
+                          onChange={numberChange}
                           required
                           className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]"
                         />

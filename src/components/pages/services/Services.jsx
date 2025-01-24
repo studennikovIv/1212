@@ -31,6 +31,22 @@ const SERVICE_DATA =
 };
 
 const Services = () => {
+
+
+const [valueNumber, setValueNumber] = useState('');
+const [valueName, setValueName] = useState('');
+
+
+
+const nameChange = (e) => {
+  setValueName(e.target.value); 
+};
+const numberChange = (e) => {
+  setValueNumber(e.target.value)
+}
+
+
+
   const [activeServiceIndex, setActiveServiceIndex] = useState(null);
   const [height, setHeight] = useState('0px');
   const contentRef = useRef(null);
@@ -110,12 +126,12 @@ const Services = () => {
                   <form className="grid gap-[25px]" onSubmit={(e) => submitHandler({ e, close })}>
                     <label className="flex flex-col gap-[15px]">
                       <span>Ваше имя</span>
-                      <input required className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]" />
+                      <input required onChange={nameChange} className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]" />
                     </label>
                     <div className="flex flex-col gap-[25px]">
                     <label className="flex flex-col gap-[15px]">
                       <span>Номер телефона</span>
-                      <input type="number" required className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]" />
+                      <input type="number" onChange={numberChange} required className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]" />
                     </label>
                       <button className="bg-[#F47500] text-white font-medium min-h-[40px]">Отправить</button>
                     </div>

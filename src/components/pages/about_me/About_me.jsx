@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import {
@@ -15,6 +15,19 @@ import {
 import aboutMeImage from './aboutMe.jpg';
 
 const AboutMe = () => {
+  const [valueNumber, setValueNumber] = useState('');
+  const [valueName, setValueName] = useState('');
+  
+  
+  
+  const nameChange = (e) => {
+    setValueName(e.target.value); 
+  };
+  const numberChange = (e) => {
+    setValueNumber(e.target.value)
+  }
+
+
   const submitHandler = ({ e, close }) => {
     e.preventDefault();
     // Обработка формы
@@ -83,6 +96,7 @@ const AboutMe = () => {
                       <label className="flex flex-col gap-[15px]">
                         <span>Ваше имя</span>
                         <input
+                          onChange={nameChange}
                           required
                           className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]"
                         />
@@ -92,6 +106,7 @@ const AboutMe = () => {
                           <span>Номер телефона</span>
                           <input
                             type="number"
+                            onChange={numberChange}
                             required
                             className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]"
                           />
