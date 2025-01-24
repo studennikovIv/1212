@@ -115,7 +115,7 @@ const Home = () => {
                         />
                       </label>
                       <button className="bg-[#F47500] text-white font-medium min-h-[40px]">
-                        Оставить отзыв
+                        Отправить
                       </button>
                     </div>
                   </form>

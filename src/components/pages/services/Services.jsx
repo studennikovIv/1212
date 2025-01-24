@@ -117,7 +117,7 @@ const Services = () => {
                       <span>Номер телефона</span>
                       <input type="number" required className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]" />
                     </label>
-                      <button className="bg-[#F47500] text-white font-medium min-h-[40px]">Оставить отзыв</button>
+                      <button className="bg-[#F47500] text-white font-medium min-h-[40px]">Отправить</button>
                     </div>
                   </form>
                 </div>

@@ -55,18 +55,18 @@ export const Layout = () => {
               <A_DIV>
                 <NavLink to="/about_me" onClick={closeMenuOnClick}>Обо мне</NavLink>
               </A_DIV>
-              <A_DIV>
+              {/* <A_DIV>
                 <NavLink to="/reviews" onClick={closeMenuOnClick}>Отзывы</NavLink>
-              </A_DIV>
+              </A_DIV> */}
               <A_DIV>
                 <NavLink to="/services" onClick={closeMenuOnClick}>Услуги</NavLink>
               </A_DIV>
-              <A_DIV>
+              {/* <A_DIV>
                 <NavLink to="/information" onClick={closeMenuOnClick}>Информация</NavLink>
-              </A_DIV>
-              <A_DIV>
+              </A_DIV> */}
+              {/* <A_DIV>
                 <NavLink to="/articles" onClick={closeMenuOnClick}>Статьи</NavLink>
-              </A_DIV>
+              </A_DIV> */}
             </MENU_NAV>
             <PHONE_DIV>
               <p>8(905) 495-95-28</p>
