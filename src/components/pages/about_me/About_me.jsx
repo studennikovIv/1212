@@ -1,3 +1,6 @@
+import React from 'react';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 import {
   ABOUT_ME_DIV,
   BOT2_ABOUT_ME_DIV,
@@ -5,7 +8,6 @@ import {
   LEFT_CONTENT_BOT_DIV,
   RIGHT_CONTENT_BOT_DIV,
   RIGHT_TEXT_DIV,
-  // SHORT_DESCRITTION_P,
   TITLE_SECTION,
   TOP_ABOUT_ME_DIV,
 } from './About_me.styled';
@@ -13,6 +15,13 @@ import {
 import aboutMeImage from './aboutMe.jpg';
 
 const AboutMe = () => {
+  const submitHandler = ({ e, close }) => {
+    e.preventDefault();
+    // Обработка формы
+    console.log('Форма отправлена');
+    close();
+  };
+
   return (
     <TITLE_SECTION>
       <ABOUT_ME_DIV>
@@ -48,9 +57,54 @@ const AboutMe = () => {
               </li>
               <li>“Логотерапия: представление о человеке”</li>
             </ul>
-            <button>
-              Записатся на <br /> консультантацию
-            </button>
+            <Popup
+              trigger={
+                <button className="w-[160px] h-[160px] rounded-[50%] font-[Manrope] font-semibold leading-[135%] flex justify-center items-center bg-[#FF9F47] text-white justify-self-center self-center hover:bg-[#F47500] transition-all">
+                  Записаться на консультацию
+                </button>
+              }
+              modal
+              nested
+              lockScroll
+            >
+              {close => (
+                <div className="modal">
+                  <button className="close mb-[25px]" onClick={close}>
+                    &times;
+                  </button>
+                  <div className="header text-[30px] font-medium mb-[30px]  leading-[135%]">
+                    Хотите записаться на прием?
+                  </div>
+                  <div className="content">
+                    <form
+                      className="grid gap-[25px]"
+                      onSubmit={e => submitHandler({ e, close })}
+                    >
+                      <label className="flex flex-col gap-[15px]">
+                        <span>Ваше имя</span>
+                        <input
+                          required
+                          className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]"
+                        />
+                      </label>
+                      <div className="flex flex-col gap-[25px]">
+                        <label className="flex flex-col gap-[15px]">
+                          <span>Номер телефона</span>
+                          <input
+                            type="number"
+                            required
+                            className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]"
+                          />
+                        </label>
+                        <button className="bg-[#F47500] text-white font-medium min-h-[40px]">
+                          Оставить отзыв
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              )}
+            </Popup>
           </RIGHT_TEXT_DIV>
         </TOP_ABOUT_ME_DIV>
         <BOT_ABOUT_ME_DIV>
@@ -58,12 +112,10 @@ const AboutMe = () => {
           <BOT2_ABOUT_ME_DIV>
             <LEFT_CONTENT_BOT_DIV>
               <h5>Запросы</h5>
-              {/* <SHORT_DESCRITTION_P> */}
               <p>
                 В моей работе я готова рассматривать и помогать вам в различных
                 запросах и темах, включая, но не ограничиваясь следующим:
               </p>
-              {/* </SHORT_DESCRITTION_P> */}
               <ul>
                 <li>Эмоциональные трудности и стресс</li>
                 <li>Проблемы в отношениях и семейные вопросы</li>
@@ -74,12 +126,10 @@ const AboutMe = () => {
             </LEFT_CONTENT_BOT_DIV>
             <RIGHT_CONTENT_BOT_DIV>
               <h5>Контракт и договоренности</h5>
-              {/* <SHORT_DESCRITTION_P> */}
               <p>
                 Перед началом работы, мы заключаем контракт, который четко
                 определяет условия сотрудничества. В них входят:
               </p>
-              {/* </SHORT_DESCRITTION_P> */}
               <ul>
                 <li>Длительность сотрудничества</li>
                 <li>Частота и продолжительность сессий</li>
