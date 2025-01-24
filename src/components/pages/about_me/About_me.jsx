@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import { botService } from  '../services/../../../service/botService';
+
 import {
   ABOUT_ME_DIV,
   BOT2_ABOUT_ME_DIV,
@@ -15,25 +17,39 @@ import {
 import aboutMeImage from './aboutMe.jpg';
 
 const AboutMe = () => {
-  const [valueNumber, setValueNumber] = useState('');
-  const [valueName, setValueName] = useState('');
-  
-  
-  
-  const nameChange = (e) => {
-    setValueName(e.target.value); 
+  const [formValues, setFormValues] = useState({ name: '', phone: '' });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
   };
-  const numberChange = (e) => {
-    setValueNumber(e.target.value)
-  }
 
-
-  const submitHandler = ({ e, close }) => {
+  const submitHandler = async ({ e, close }) => {
     e.preventDefault();
-    // Обработка формы
-    console.log('Форма отправлена');
-    close();
+    const { name, phone } = formValues;
+
+    try {
+      // Вызов botService для отправки сообщения
+      await botService.sendMessage(
+        phone, // Телефон
+        'Не указано', // Улица (или добавьте поле для него)
+        'Не указано', // Дом (или добавьте поле для него)
+        'Запрос на консультацию', // Комментарий
+        [{ name: 'Консультация', span: 1 }], // Условный товар
+        0, // Итоговая сумма
+        name // Имя клиента
+      );
+
+      alert('Ваш запрос успешно отправлен!');
+      close(); // Закрыть модальное окно
+    } catch (error) {
+      alert('Произошла ошибка при отправке. Попробуйте снова.');
+    }
   };
+
 
   return (
     <TITLE_SECTION>
@@ -72,9 +88,10 @@ const AboutMe = () => {
             </ul>
             <Popup
               trigger={
-                <button className="w-[160px] h-[160px] rounded-[50%] font-[Manrope] font-semibold leading-[135%] flex justify-center items-center bg-[#FF9F47] text-white justify-self-center self-center hover:bg-[#F47500] transition-all">
-                  Записаться на консультацию
-                </button>
+                <button className="min-w-[200px] min-h-[200px] rounded-[50%] font-[Manrope] font-semibold leading-[135%] flex justify-center items-center bg-[#FF9F47] text-white justify-self-center self-center hover:bg-[#F47500] transition-all">
+                Записаться на консультацию
+              </button>
+              
               }
               modal
               nested
@@ -96,20 +113,22 @@ const AboutMe = () => {
                       <label className="flex flex-col gap-[15px]">
                         <span>Ваше имя</span>
                         <input
-                          onChange={nameChange}
-                          required
-                          className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]"
-                        />
+                        name="name"
+                        required
+                        onChange={handleInputChange}
+                        className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]"
+                      />
                       </label>
                       <div className="flex flex-col gap-[25px]">
                         <label className="flex flex-col gap-[15px]">
                           <span>Номер телефона</span>
                           <input
-                            type="number"
-                            onChange={numberChange}
-                            required
-                            className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]"
-                          />
+                          name="phone"
+                          type="number"
+                          onChange={handleInputChange}
+                          required
+                          className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]"
+                        />
                         </label>
                         <button className="bg-[#F47500] text-white font-medium min-h-[40px]">
                           Отправить

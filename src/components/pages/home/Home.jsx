@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-
+import { botService } from  '../services/../../../service/botService';
 import {
   TITLE_SECTION,
   HERO_DIV,
@@ -36,23 +36,41 @@ import potential from './img/Potential.png';
 import selbstachtung from './img/Selbstachtung.png';
 
 const Home = () => {
-  const submitHandler = ({ e, close }) => {
-    e.preventDefault();
-    // Обработка отправки формы
-    close(); // Закрыть модальное окно после отправки
+  const [formValues, setFormValues] = useState({ name: '', phone: '' });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
   };
 
-const [valueNumber, setValueNumber] = useState('');
-const [valueName, setValueName] = useState('');
+  const submitHandler = async ({ e, close }) => {
+    e.preventDefault();
+    const { name, phone } = formValues;
+
+    try {
+      // Вызов botService для отправки сообщения
+      await botService.sendMessage(
+        phone, // Телефон
+        'Не указано', // Улица (или добавьте поле для него)
+        'Не указано', // Дом (или добавьте поле для него)
+        'Запрос на консультацию', // Комментарий
+        [{ name: 'Консультация', span: 1 }], // Условный товар
+        0, // Итоговая сумма
+        name // Имя клиента
+      );
+
+      alert('Ваш запрос успешно отправлен!');
+      close(); // Закрыть модальное окно
+    } catch (error) {
+      alert('Произошла ошибка при отправке. Попробуйте снова.');
+    }
+  };
 
 
 
-const nameChange = (e) => {
-  setValueName(e.target.value); 
-};
-const numberChange = (e) => {
-  setValueNumber(e.target.value)
-}
 
   return (
     <TITLE_SECTION>
@@ -113,8 +131,9 @@ const numberChange = (e) => {
                     <label className="flex flex-col gap-[15px]">
                       <span>Ваше имя</span>
                       <input
+                        name="name"
                         required
-                        onChange={nameChange}
+                        onChange={handleInputChange}
                         className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]"
                       />
                     </label>
@@ -122,8 +141,9 @@ const numberChange = (e) => {
                       <label className="flex flex-col gap-[15px]">
                         <span>Номер телефона</span>
                         <input
+                          name="phone"
                           type="number"
-                          onChange={numberChange}
+                          onChange={handleInputChange}
                           required
                           className="min-h-[40px] !p-[5px] border border-solid border-[#CBCAC5]"
                         />
